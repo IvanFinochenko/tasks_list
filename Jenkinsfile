@@ -4,13 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd frontend && npm install && npm test'
+                sh 'cd frontend && npm install'
                 echo 'Build done'
             }
         }
         stage('Test') {
             steps {
-                echo 'Test run'
+                sh 'npm test'
+                echo 'Test done'
             }
         }
     }
