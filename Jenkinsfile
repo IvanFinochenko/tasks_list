@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'cd frontend $$ npm install'
-                echo 'Build run'
+                echo 'Build done'
             }
         }
         stage('Test') {
