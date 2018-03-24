@@ -16,10 +16,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
-                    def app = docker.build(ivanfinochenko/tasks_list)
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
+                scripts {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                        def app = docker.build(ivanfinochenko/tasks_list)
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
                 }
             }
         }
