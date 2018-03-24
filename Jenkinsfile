@@ -14,7 +14,7 @@ pipeline {
                 echo 'Test done'
             }
         }
-        stage('Docker build') {
+        stage('Docker Build') {
             steps {
                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
                     def app = docker.build(ivanfinochenko/tasks_list)
