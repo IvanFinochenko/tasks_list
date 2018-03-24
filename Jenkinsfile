@@ -17,8 +17,8 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
-                        def app = docker.build(ivanfinochenko/tasks_list)
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        def app = docker.build('ivanfinochenko/tasks_list')
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
