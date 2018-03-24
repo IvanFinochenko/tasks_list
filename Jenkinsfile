@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'cd frontend && npm test'
+                sh 'npm test'
                 echo 'Test done'
             }
         }
