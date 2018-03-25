@@ -28,9 +28,16 @@ pipeline {
     }
 
     post {
-        always {
-            jiraAddComment site: 'Jira', idOrKey: 'TL-8', comment: 'test comment'
-            echo 'post always'
+        success {
+            jiraAddComment site: 'Jira', idOrKey: 'TL-7', comment: 'Build successed'
+        }
+        failure {
+            def errorIssue = [fields: [
+                               project: [id: '10200'],
+                               summary: BUILD_ID + 'Build failed',
+                               issuetype: [id: '10003']]]
+            jiraAddComment site: 'Jira', idOrKey: 'TL-7', comment: 'Build failed'
+            jiraNewIssue site: 'Jira', issue: errorIssue
         }
     }
 }
