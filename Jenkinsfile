@@ -36,7 +36,7 @@ pipeline {
                 def errorIssue = [fields: [
                                    project: [id: '10200'],
                                    summary: BUILD_ID + 'Build failed',
-                                   issuetype: [id: '10003']]]
+                                   issuetype: [id: '10101']]]
                 jiraAddComment site: 'Jira', idOrKey: 'TL-7', comment: 'Build failed'
                 jiraNewIssue site: 'Jira', issue: errorIssue
             }
