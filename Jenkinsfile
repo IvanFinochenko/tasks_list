@@ -29,7 +29,7 @@ pipeline {
 
     post {
         always {
-            jiraAddComment site: 'Jira' idOrKey: '10002', comment: 'test comment'
+            jiraAddComment site: 'Jira', idOrKey: '10002', comment: 'test comment'
             echo 'post always'
         }
     }
