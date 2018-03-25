@@ -14,6 +14,12 @@ pipeline {
                 echo 'Test done'
             }
         }
+        stage('Linter') {
+            steps {
+                sh 'npm run lint'
+                echo 'Lint done'
+            }
+        }
         stage('Docker Build') {
             steps {
                 script {

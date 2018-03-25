@@ -15,5 +15,5 @@ app.get('/api/tasks', (req, res) => {
 app.listen(config.port, (err) => {
 	if (err) throw err;
 
-	console.log(`listening port ${config.port}`);
+	//console.log(`listening port ${config.port}`);
 });
